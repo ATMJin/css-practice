@@ -1,39 +1,42 @@
 <template >
-  <div class="navigation">
-    <ul>
-      <li v-for="(item, index) in menuList" :key="index" :class="['list', { 'active': item.active }]"
-        @mouseover="toggleActive(index)" @mouseenter="changeBodyBGC">
-        <a href="#">
-          <span class="icon">
-            <font-awesome-icon :icon="['fa-solid', item.icon]" />
-          </span>
-          <span class="title">{{ item.title }}</span>
-        </a>
-      </li>
-      <div class="indicator"></div>
-    </ul>
+  <div class="body" :style="{ 'background': bodyBGC }">
+    <div class="navigation">
+      <ul>
+        <li v-for="(item, index) in menuList" :key="index" :class="['list', { 'active': item.active }]"
+          @mouseover="toggleActive(index)" @mouseenter="changeBodyBGC(index)">
+          <a href="#">
+            <span class="icon">
+              <font-awesome-icon :icon="['fa-solid', item.icon]" />
+            </span>
+            <span class="title">{{ item.title }}</span>
+          </a>
+        </li>
+        <div class="indicator"></div>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 let menuList = reactive([
-  { title: "Home", icon: "fa-house", active: true },
-  { title: "Profile", icon: "fa-user", active: false },
-  { title: "Message", icon: "fa-message", active: false },
-  { title: "Help", icon: "fa-circle-question", active: false },
-  { title: "Settings", icon: "fa-gear", active: false }]);
+  { title: "Home", icon: "fa-house", active: true, color: "#f53b57" },
+  { title: "Profile", icon: "fa-user", active: false, color: "#3c40c6" },
+  { title: "Message", icon: "fa-message", active: false, color: "#05c46b" },
+  { title: "Help", icon: "fa-circle-question", active: false, color: "#0fbcf9" },
+  { title: "Settings", icon: "fa-gear", active: false, color: "#ffa801" }]);
+let bodyBGC = ref('');
 
 let toggleActive = (i: number) => {
   menuList.forEach((el) => { el.active = false; });
   menuList[i].active = true;
 };
-let changeBodyBGC = () => {
-
+let changeBodyBGC = (i: number) => {
+  bodyBGC.value = menuList[i].color;
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 * {
   margin: 0;
   padding: 0;
@@ -41,12 +44,13 @@ let changeBodyBGC = () => {
   font-family: 'Poppins', sans-serif;
 }
 
-body {
+.body {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #333;
+  background: #f53b57;
+  transition: .5s
 }
 
 .navigation {
