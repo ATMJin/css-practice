@@ -44,6 +44,8 @@ let changeBodyBGC = (i: number) => {
   font-family: 'Poppins', sans-serif;
 }
 
+$color: #f53b57, #3c40c6, #05c46b, #0fbcf9, #ffa801;
+
 .body {
   display: flex;
   justify-content: center;
@@ -133,6 +135,7 @@ let changeBodyBGC = (i: number) => {
 
       &.active .icon {
         color: #fff;
+        transition: .5s;
       }
 
       ~.indicator {
@@ -156,7 +159,6 @@ let changeBodyBGC = (i: number) => {
         }
       }
 
-      $color: [#f53b57, #3c40c6, #05c46b, #0fbcf9, #ffa801];
 
       @for $i from 1 through 5 {
         &:nth-child(#{$i}).active~.indicator {
