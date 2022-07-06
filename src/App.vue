@@ -9,7 +9,7 @@ import VanillaJavascriptParticles from '@/components/VanillaJavascriptParticles.
   <header>
     <div class="wrapper">
       <DashboardSidebarMenu></DashboardSidebarMenu>
-      <VanillaJavascriptParticles></VanillaJavascriptParticles>
+      <!-- <VanillaJavascriptParticles></VanillaJavascriptParticles> -->
     </div>
   </header>
 
