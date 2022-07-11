@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
-import CustomShapeButton from '@/components/CustomShapeButton.vue';
-import DashboardSidebarMenu from '@/components/DashboardSidebarMenu.vue';
-import VanillaJavascriptParticles from '@/components/VanillaJavascriptParticles.vue';
+// import CustomShapeButton from '@/components/CustomShapeButton.vue';
+// import DashboardSidebarMenu from '@/components/DashboardSidebarMenu.vue';
+import AnimatedLoginForm from '@/components/AnimatedLoginForm.vue';
 </script>
 
 <template>
   <header>
     <div class="wrapper">
-      <DashboardSidebarMenu></DashboardSidebarMenu>
-      <!-- <VanillaJavascriptParticles></VanillaJavascriptParticles> -->
+      <AnimatedLoginForm></AnimatedLoginForm>
     </div>
   </header>
 
